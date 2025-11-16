@@ -3,43 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AP2 - Categorias</title>
+    <title>The Rift, Categorias</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+
+    <!--    Requisito 1:    -->
     <header>
+
+        <!--    Header com icone    -->
         <div class="logo">
-            <a href="index.html"><img src="The Rift.png"></a>
+            <a href="index.html"><img src="The Rift.png" alt="Logo da The Rift"></a>
         </div>
-        <button id="menu-toggle" aria-label="Abrir menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+
+        <!--    E nav entre as paginas  -->
         <nav id="nav-links">
             <ul>
                 <li><a href="index.html">Sorteio</a></li>
                 <li><a href="categorias.html">Categorias</a></li>
             </ul>
         </nav>
+        
+
+        <!--    Requisito 2: menu hamburguer para celular   -->
+        <button id="botao-menu" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <main>
+
+
+        <!--    Requisito 3:    -->
         <section class="page-content">
+            <!--    Um h1   -->
             <h1>Escolha uma categoria:</h1>
+            <!--    Com botao    -->
             <div id="category-buttons">
-                <button class="btn category-btn" data-category="beauty">Beleza</button>
-                <button class="btn category-btn" data-category="fragrances">Fragrâncias</button>
-                <button class="btn category-btn" data-category="furniture">Decoração</button>
-                <button class="btn category-btn" data-category="groceries">Mercearia</button>
+                <button class="btn categoria-btn" data-category="beauty">Beleza</button>
+                <button class="btn categoria-btn" data-category="fragrances">Fragrâncias</button>
+                <button class="btn categoria-btn" data-category="furniture">Decoração</button>
+                <button class="btn categoria-btn" data-category="groceries">Mercearia</button>
             </div>
         </section>
 
-        <div id="gallery-container" class="gallery-categories">
-            </div>
+
+        <!--    Requisito 4: Container para galeria    -->
+        <div id="container-galeria" class="gallery-categories">
+        </div>
     </main>
 
+
+    <!--    Requisito 7: Footer com informação de copyrights com meu nome e ano    -->
     <footer>
         <p>&copy; 2025 - Letícia Valladão. Todos os direitos reservados.</p>
     </footer>

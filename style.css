@@ -1,4 +1,3 @@
-/* --- Organização do Código: CSS Básico e Novo Tema (Marrom) --- */
 * {
     margin: 0;
     padding: 0;
@@ -8,9 +7,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    /* --- NOVO: Fundo da página inteira (body) é o marrom escuro --- */
     background-color: #2a2121;
-    /* --- NOVO: Texto padrão da página é claro --- */
     color: #F5F5F5;
     display: flex;
     flex-direction: column;
@@ -18,11 +15,10 @@ body {
 }
 
 main {
-    flex: 1; /* Permite que o main cresça e empurre o footer */
+    flex: 1; 
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
-    /* --- NOVO: Sem cor de fundo aqui, herda do body --- */
 }
 
 img {
@@ -30,15 +26,12 @@ img {
     display: block;
 }
 
-/* --- Requisito 1, 2: Header (Tema Marrom Claro) --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    /* Fundo "marrom bem claro" (bege) */
     background-color: #bccab3;
-    /* Texto "escuro" */
     color: #302b25;
     position: relative;
     border-bottom: 2px solid #E0DACE;
@@ -49,10 +42,9 @@ header {
     text-decoration: none;
 }
 
-/* Regra para diminuir a imagem do Logo */
 .logo img {
-    height: 45px; /* Ajuste esta altura conforme necessário */
-    width: auto; /* Mantém a proporção */
+    height: 45px; 
+    width: auto; 
 }
 
 #nav-links {
@@ -61,12 +53,13 @@ header {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #E0DACE; /* Fundo claro para dropdown */
+    background-color: #E0DACE; 
     text-align: center;
     z-index: 10;
 }
 
-#nav-links.active {
+/* Esta classe .ativo bate com o seu JS */
+#nav-links.ativo {
     display: block;
 }
 
@@ -84,43 +77,41 @@ header {
 }
 
 #nav-links a {
-    color: #302b25; /* Texto escuro */
+    color: #302b25; 
     text-decoration: none;
     font-size: 1.1rem;
     display: block;
 }
 
-/* --- Requisito 2: Botão Hamburguer (Tema Marrom) --- */
-#menu-toggle {
+/* Este ID #botao-menu bate com o seu JS */
+#botao-menu {
     display: block;
     background: none;
     border: none;
     cursor: pointer;
 }
 
-/* Traços do hamburguer com cor escura */
-#menu-toggle span {
+
+#botao-menu span {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #4E443A; /* Cor escura */
+    background-color: #4E443A; 
     margin: 5px 0;
     transition: all 0.3s ease;
 }
 
-/* Animação do hamburguer para 'X' */
-#menu-toggle.active span:nth-child(1) {
+/* Esta classe .ativo bate com o seu JS */
+#botao-menu.ativo span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
-#menu-toggle.active span:nth-child(2) {
+#botao-menu.ativo span:nth-child(2) {
     opacity: 0;
 }
-#menu-toggle.active span:nth-child(3) {
+#botao-menu.ativo span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-
-/* --- Requisito 3: Botões e Títulos (Tema Marrom) --- */
 .page-content {
     text-align: center;
     margin-bottom: 2rem;
@@ -128,10 +119,9 @@ header {
 
 h1 {
     margin-bottom: 1rem;
-    color: #F5F5F5; /* Texto claro (herdado do body) */
+    color: #F5F5F5;
 }
 
-/* Cor dos Botões (Laranja/Ferrugem) */
 .btn {
     background-color: #8dbf9e;
     color: rgb(0, 0, 0);
@@ -148,16 +138,16 @@ h1 {
     background-color: #d9f3d1;
 }
 
-#category-buttons {
+/* --- MUDANÇA 1 --- */
+/* ID atualizado para 'categoria-botoes' para bater com o JS */
+#categoria-botoes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
 }
 
-/* --- Requisito 4, 5, 6: Galerias e Cards (Tema Marrom Escuro) --- */
 .card {
-    /* --- NOVO: Fundo do card (marrom médio) para dar destaque --- */
     background: #392e29;
     border: 1px solid #5D4037;
     border-radius: 8px;
@@ -171,7 +161,6 @@ h1 {
     width: 100%;
     height: 250px;
     object-fit: contain; 
-    /* Fundo da imagem (marrom escuro) para combinar com o body */
     background-color: #513f3f;
 }
 
@@ -183,10 +172,12 @@ h1 {
 .card-content h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: #F5F5F5; /* Texto claro */
+    color: #F5F5F5; 
 }
 
-.card-content .category {
+/* --- MUDANÇA 2 --- */
+/* Classe atualizada para '.categoria' para bater com o JS */
+.card-content .categoria {
     display: inline-block;
     background: rgb(162, 188, 154);
     color: #241d1a;
@@ -200,10 +191,9 @@ h1 {
 
 .card-content p {
     font-size: 0.9rem;
-    color: #E0E0E0; /* Texto claro (um pouco menos brilhante) */
+    color: #E0E0E0; 
 }
 
-/* --- Layout: Galerias (Mobile) --- */
 .gallery-index {
     max-width: 500px;
     margin: 0 auto;
@@ -215,21 +205,17 @@ h1 {
     gap: 1.5rem;
 }
 
-/* --- Requisito 7: Footer (Tema Marrom Claro) --- */
 footer {
-    /* "marrom bem claro" (bege), igual ao header */
     background-color: #bccab3;
-    /* Texto escuro */
     color: #302b25;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 2rem; /* Separa do conteúdo principal */
+    margin-top: 2rem; 
 }
 
-/* --- Critério: Medias queries corretas (Desktop) --- */
 @media (min-width: 768px) {
     
-    #menu-toggle {
+    #botao-menu {
         display: none;
     }
 
@@ -251,16 +237,14 @@ footer {
     }
 
     #nav-links a:hover {
-        color: #052400; /* Cor de destaque (laranja) no hover */
+        color: #052400; 
     }
 
-    /* Layout da galeria de categorias em desktop */
     .gallery-categories {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* --- Classe para tratamento de erros (Tema Marrom Escuro) --- */
 .error-message {
     color: #FFD2D2;
     background-color: #8C1C13;
