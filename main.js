@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // API pedida
-    const API_URL = 'https://dummyjson.com/produtos';
+    const API_URL = 'https://dummyjson.com/products';
 
     //  Requisito 5: Sorteio de produto da api
     const sortearBtn = document.getElementById('sortear-btn');
@@ -27,19 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (sortearBtn) {
         sortearBtn.addEventListener('click', sortearProduto);
     }
+    
     async function sortearProduto() {
         containerGaleria.innerHTML = '<p>Sorteando produto...</p>';
 
         try {
-            // Busca de dados na api
             const response = await fetch(API_URL);
-
-            // Tratamento de erros
             if (!response.ok) {
                 throw new Error(`Erro HTTP: ${response.status}`);
             }
             const data = await response.json();
-            const produtos = data.produtos;
+            const produtos = data.products; // Correto
+            
             const randomIndex = Math.floor(Math.random() * produtos.length);
             const randomProduct = produtos[randomIndex];
             renderprodutos([randomProduct], containerGaleria);
@@ -52,30 +50,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    //  Requisito 6: 4 botões com diferentes categorias para o usuario escolher
+    //  Requisito 6: 4 botões com diferentes categorias
     const categoriaBotoes = document.getElementById('categoria-botoes');
 
     if (categoriaBotoes) {
         categoriaBotoes.addEventListener('click', (event) => {
             if (event.target.classList.contains('categoria-btn')) {
-                const categoria = event.target.dataset.categoria;
-                sortearCategoria(categoria);
+                
+                const categoria = event.target.dataset.category; 
+                
+                if (categoria) {
+                    sortearCategoria(categoria);
+                }
             }
         });
     }
+
     async function sortearCategoria(categoria) {
         containerGaleria.innerHTML = `<p>Carregando produtos da categoria: ${categoria}...</p>`;
 
         try {
-            //  Busca dados na API com o filtro
-            const response = await fetch(`${API_URL}/categoria/${categoria}`);
+            const response = await fetch(`${API_URL}/category/${categoria}`);
 
-            //  Tratamento de erro
             if (!response.ok) {
                 throw new Error(`Erro HTTP: ${response.status}`);
             }
             const data = await response.json();
-            const produtos = data.produtos;
+            const produtos = data.products;
+            
             renderprodutos(produtos, containerGaleria);
 
         } catch (error) {
@@ -85,14 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-
     //  Construção de interfaces com JS e Manipulação do DOM.
-
     function renderprodutos(produtos, container) {
         container.innerHTML = '';
 
-        if (produtos.length === 0) {
+        if (!produtos || produtos.length === 0) {
             container.innerHTML = '<p>Nenhum produto encontrado.</p>';
             return;
         }
@@ -101,12 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement('article');
             card.className = 'card'; 
 
-            // Informações requisitadas: id, nome, descrição, categoria, imagem no indice 0
             card.innerHTML = `
                 <img src="${product.images[0]}" alt="${product.title}">
                 <div class="card-content">
                     <h3>${product.title} (ID: ${product.id})</h3>
-                    <span class="categoria">${product.categoria}</span>
+                    
+                    <span class="categoria">${product.category}</span>
+                    
                     <p>${product.description}</p>
                 </div>
             `;
