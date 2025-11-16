@@ -1,0 +1,272 @@
+/* --- Organização do Código: CSS Básico e Novo Tema (Marrom) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    /* --- NOVO: Fundo da página inteira (body) é o marrom escuro --- */
+    background-color: #2a2121;
+    /* --- NOVO: Texto padrão da página é claro --- */
+    color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Permite que o main cresça e empurre o footer */
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    /* --- NOVO: Sem cor de fundo aqui, herda do body --- */
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* --- Requisito 1, 2: Header (Tema Marrom Claro) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    /* Fundo "marrom bem claro" (bege) */
+    background-color: #bccab3;
+    /* Texto "escuro" */
+    color: #302b25;
+    position: relative;
+    border-bottom: 2px solid #E0DACE;
+}
+
+.logo a {
+    color: #302b25;
+    text-decoration: none;
+}
+
+/* Regra para diminuir a imagem do Logo */
+.logo img {
+    height: 45px; /* Ajuste esta altura conforme necessário */
+    width: auto; /* Mantém a proporção */
+}
+
+#nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #E0DACE; /* Fundo claro para dropdown */
+    text-align: center;
+    z-index: 10;
+}
+
+#nav-links.active {
+    display: block;
+}
+
+#nav-links ul {
+    list-style: none;
+}
+
+#nav-links li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #CFC0A8;
+}
+
+#nav-links li:last-child {
+    border-bottom: none;
+}
+
+#nav-links a {
+    color: #302b25; /* Texto escuro */
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+}
+
+/* --- Requisito 2: Botão Hamburguer (Tema Marrom) --- */
+#menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Traços do hamburguer com cor escura */
+#menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #4E443A; /* Cor escura */
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Animação do hamburguer para 'X' */
+#menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+
+/* --- Requisito 3: Botões e Títulos (Tema Marrom) --- */
+.page-content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    color: #F5F5F5; /* Texto claro (herdado do body) */
+}
+
+/* Cor dos Botões (Laranja/Ferrugem) */
+.btn {
+    background-color: #8dbf9e;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d9f3d1;
+}
+
+#category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* --- Requisito 4, 5, 6: Galerias e Cards (Tema Marrom Escuro) --- */
+.card {
+    /* --- NOVO: Fundo do card (marrom médio) para dar destaque --- */
+    background: #392e29;
+    border: 1px solid #5D4037;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain; 
+    /* Fundo da imagem (marrom escuro) para combinar com o body */
+    background-color: #513f3f;
+}
+
+.card-content {
+    padding: 1rem;
+    flex: 1;
+}
+
+.card-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #F5F5F5; /* Texto claro */
+}
+
+.card-content .category {
+    display: inline-block;
+    background: rgb(162, 188, 154);
+    color: #241d1a;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    text-transform: capitalize;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #E0E0E0; /* Texto claro (um pouco menos brilhante) */
+}
+
+/* --- Layout: Galerias (Mobile) --- */
+.gallery-index {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.gallery-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+/* --- Requisito 7: Footer (Tema Marrom Claro) --- */
+footer {
+    /* "marrom bem claro" (bege), igual ao header */
+    background-color: #bccab3;
+    /* Texto escuro */
+    color: #302b25;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem; /* Separa do conteúdo principal */
+}
+
+/* --- Critério: Medias queries corretas (Desktop) --- */
+@media (min-width: 768px) {
+    
+    #menu-toggle {
+        display: none;
+    }
+
+    #nav-links {
+        display: block;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    #nav-links ul {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    #nav-links li {
+        padding: 0;
+        border-bottom: none;
+    }
+
+    #nav-links a:hover {
+        color: #052400; /* Cor de destaque (laranja) no hover */
+    }
+
+    /* Layout da galeria de categorias em desktop */
+    .gallery-categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- Classe para tratamento de erros (Tema Marrom Escuro) --- */
+.error-message {
+    color: #FFD2D2;
+    background-color: #8C1C13;
+    border: 1px solid #FFD2D2;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
